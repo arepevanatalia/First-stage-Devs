@@ -1,0 +1,40 @@
+using System;
+class Program
+{
+    static void Main()
+        {
+            Console.WriteLine("Введите строки массива:");
+            string[] inputStrings = Console.ReadLine().Split(' ');
+
+            string[] filteredStrings = FilterStrings(inputStrings);
+
+            Console.WriteLine("Отфильтрованный массив:");
+            foreach (string str in filteredStrings)
+            {
+                Console.Write($"{str} ");
+            }
+            Console.WriteLine();
+        }
+        static string[] FilterStrings(string[] inputStrings)
+        {
+            int count = 0;
+            foreach (string str in inputStrings)
+            {
+                if (str.Length <= 3)
+                {
+                    count++;
+                }
+            }
+            string[] filteredStrings = new string[count];
+            int index = 0;
+            foreach (string str in inputStrings)
+            {
+                if (str.Length <= 3)
+                {
+                    filteredStrings[index] = str;
+                    index++;
+                }
+            }
+            return filteredStrings;
+        }
+}
